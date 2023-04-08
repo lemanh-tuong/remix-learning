@@ -1,0 +1,22 @@
+{
+  "recommendations": [
+    "EditorConfig.EditorConfig",
+    "mquandalle.graphql",
+    "esbenp.prettier-vscode",
+    "wayou.vscode-todo-highlight",
+    "qwtel.sqlite-viewer",
+    "be5invis.toml",
+    "vscode-icons-team.vscode-icons",
+    "ue.alphabetical-sorter",
+    "adpyke.codesnap",
+    "eamodio.gitlens",
+    "GitHub.vscode-pull-request-github",
+    "donjayamanne.githistory",
+    "mhutchie.git-graph",
+    "naumovs.color-highlight",
+    "mgmcdermott.vscode-language-babel",
+    "IronGeek.vscode-env",
+    "dbaeumer.vscode-eslint",
+    "usernamehw.errorlens"
+  ]
+}
