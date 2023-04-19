@@ -1,9 +1,13 @@
 import { json } from '@remix-run/node';
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData } from '@remix-run/react';
+import remixImageStyles from 'remix-image/remix-image.css';
 import stylesheet from '~/tailwind.css';
 import type { LinksFunction } from '@remix-run/node';
 
-export const links: LinksFunction = () => [{ rel: 'stylesheet', href: stylesheet }];
+export const links: LinksFunction = () => [
+  { rel: 'stylesheet', href: stylesheet },
+  { rel: 'stylesheet', href: remixImageStyles },
+];
 
 export const loader = async () => {
   return json({
