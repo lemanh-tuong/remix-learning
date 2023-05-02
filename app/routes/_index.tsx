@@ -1,43 +1,44 @@
-import { json } from '@remix-run/node';
-import { useLoaderData } from '@remix-run/react';
-import { getQuotes } from '~/services/getQuotes';
-import type { V2_MetaFunction } from '@remix-run/node';
-import type { Quote } from '~/models/Quote';
+import { Form, Link, useLoaderData } from '@remix-run/react';
+import { storage } from '~/services/SessionStorage';
+import type { LoaderFunction, V2_MetaFunction } from '@remix-run/node';
 
 export const meta: V2_MetaFunction = () => {
   return [{ title: 'New Remix App' }];
 };
 
-interface PageProps {
-  quotes: Quote[];
-}
-
-export const loader = async () => {
-  const quotes = await getQuotes();
-  return json<PageProps>({
-    quotes,
-  });
+export const loader: LoaderFunction = async ({ request }) => {
+  const session = await storage.getSession({ request });
+  return session;
 };
 
 export default function Index() {
-  const { quotes } = useLoaderData<typeof loader>();
+  const session = useLoaderData();
+
+  if (session.userInfo) {
+    return (
+      <div>
+        <div>
+          <h1>Hello {session.userInfo.email}</h1>
+          <div>
+            <Link to="/profile">Profile</Link>
+          </div>
+          <div>
+            <Form action="/logout" method="POST">
+              <button type="submit" className="text-gray-700 hover:text-purple-700">
+                Log Out
+              </button>
+            </Form>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div>
-      <div className="grid grid-cols-1 lg:grid-flow-row lg:grid-cols-3">
-        {quotes.map((q, i) => {
-          const { quote, by } = q;
-          return (
-            <figure key={i} className="m-4 px-4 py-10 shadow-md shadow-sky-100">
-              <blockquote cite="https://wisdomman.com" className="py-3">
-                <p className="text-xl  text-gray-800">{quote}</p>
-              </blockquote>
-              <figcaption>
-                <cite className="mb-4 text-right text-sm text-gray-600">- {by}</cite>
-              </figcaption>
-            </figure>
-          );
-        })}
+      <div>
+        <h1>Hello world</h1>
+        <Link to="/login">Login</Link>
       </div>
     </div>
   );
