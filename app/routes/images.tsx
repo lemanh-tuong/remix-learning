@@ -1,5 +1,6 @@
 import React from 'react';
 import Image, { MimeType } from 'remix-image';
+import image from '~/assets/images/images.jpg';
 
 const IndexPage: React.FC = () => (
   <div>
@@ -10,10 +11,20 @@ const IndexPage: React.FC = () => (
       loaderUrl="/api"
       responsive={[
         {
-          size: { width: 500 },
+          size: { width: 100, height: 100 },
           maxWidth: 500,
         },
+        {
+          size: { width: 600, height: 600 },
+        },
       ]}
+    />
+    <Image
+      options={{ contentType: MimeType.WEBP }}
+      src={image}
+      placeholder="blur"
+      loaderUrl="/api"
+      responsive={[{ size: { width: 100 } }]}
     />
   </div>
 );

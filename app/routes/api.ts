@@ -1,7 +1,7 @@
-import { imageLoader, fsResolver, fetchResolver } from 'remix-image/server';
+import { fetchResolver, fsResolver, imageLoader } from 'remix-image/server';
 import { sharpTransformer } from 'remix-image-sharp';
 import type { LoaderFunction } from '@remix-run/node';
-import type { Resolver } from 'remix-image/server';
+import type { LoaderConfig, Resolver } from 'remix-image/server';
 
 export const fetchImage: Resolver = async (asset, url, options, basePath) => {
   if (url.startsWith('/') && (url.length === 1 || url[1] !== '/')) {
@@ -11,7 +11,7 @@ export const fetchImage: Resolver = async (asset, url, options, basePath) => {
   }
 };
 
-const config = {
+const config: LoaderConfig = {
   selfUrl: 'http://localhost:3000',
   resolver: fetchImage,
   transformer: sharpTransformer,
