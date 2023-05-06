@@ -26,6 +26,13 @@ const IndexPage: React.FC = () => (
       loaderUrl="/api"
       responsive={[{ size: { width: 100 } }]}
     />
+    <Image
+      options={{ contentType: MimeType.WEBP }}
+      src="https://images.pexels.com/photos/12736878/pexels-photo-12736878.jpeg"
+      placeholder="blur"
+      loaderUrl="/api"
+      responsive={[{ size: { width: 100 } }]}
+    />
   </div>
 );
 
