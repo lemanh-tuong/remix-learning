@@ -1,4 +1,4 @@
-import type { Quote } from '~/models/Quote';
+import type { Quote } from '~/models/langs';
 
 export const getQuotes = async () => {
   return Promise.resolve<Quote[]>([
