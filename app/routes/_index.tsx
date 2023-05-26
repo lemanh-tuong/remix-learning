@@ -19,10 +19,14 @@ export const meta: V2_MetaFunction = () => {
 
 export default function Index() {
   const { countries } = useLoaderData<PageProps>();
-
+  const func = async () => {
+    const response = await window.versions.ping();
+    console.log(response); // prints out 'pong'
+  };
   return (
     <div>
-      <h1>Remix + GraphQL!</h1>
+      <h1 onClick={func}>Remix + GraphQL!</h1>
+      <button className="bg-slate-300 px-4 py-2">Load</button>
       <ul>
         {countries.map(({ code, name }) => (
           <li key={code}>

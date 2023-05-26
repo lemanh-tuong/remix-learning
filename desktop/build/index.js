@@ -107,7 +107,7 @@ __export(root_exports, {
 var import_node2 = require("@remix-run/node"), import_react2 = require("@remix-run/react");
 
 // app/tailwind.css
-var tailwind_default = "/build/_assets/tailwind-POMMSKQG.css";
+var tailwind_default = "/build/_assets/tailwind-2OMSUG54.css";
 
 // app/root.tsx
 var import_jsx_dev_runtime2 = require("react/jsx-dev-runtime"), links = () => [{ rel: "stylesheet", href: tailwind_default }], loader = async () => (0, import_node2.json)({
@@ -293,9 +293,17 @@ var import_jsx_dev_runtime4 = require("react/jsx-dev-runtime"), loader3 = async 
 function Index() {
   let { countries } = (0, import_react4.useLoaderData)();
   return /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("div", { children: [
-    /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("h1", { children: "Remix + GraphQL!" }, void 0, !1, {
+    /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("h1", { onClick: async () => {
+      let response = await window.versions.ping();
+      console.log(response);
+    }, children: "Remix + GraphQL!" }, void 0, !1, {
       fileName: "app/routes/_index.tsx",
-      lineNumber: 25,
+      lineNumber: 28,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("button", { className: "bg-slate-300 px-4 py-2", children: "Load" }, void 0, !1, {
+      fileName: "app/routes/_index.tsx",
+      lineNumber: 29,
       columnNumber: 7
     }, this),
     /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("ul", { children: countries.map(({ code, name }) => /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("li", { children: [
@@ -304,7 +312,7 @@ function Index() {
         name
       ] }, void 0, !0, {
         fileName: "app/routes/_index.tsx",
-        lineNumber: 29,
+        lineNumber: 33,
         columnNumber: 13
       }, this),
       /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("button", { onClick: () => window.open(`/countries/${code}`), children: [
@@ -312,27 +320,27 @@ function Index() {
         name
       ] }, void 0, !0, {
         fileName: "app/routes/_index.tsx",
-        lineNumber: 32,
+        lineNumber: 36,
         columnNumber: 13
       }, this)
     ] }, code, !0, {
       fileName: "app/routes/_index.tsx",
-      lineNumber: 28,
+      lineNumber: 32,
       columnNumber: 11
     }, this)) }, void 0, !1, {
       fileName: "app/routes/_index.tsx",
-      lineNumber: 26,
+      lineNumber: 30,
       columnNumber: 7
     }, this)
   ] }, void 0, !0, {
     fileName: "app/routes/_index.tsx",
-    lineNumber: 24,
+    lineNumber: 27,
     columnNumber: 5
   }, this);
 }
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { version: "244379ad", entry: { module: "/build/entry.client-QS5YN5QW.js", imports: ["/build/_shared/chunk-A3MQEAS6.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-S67T3OB6.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-D5SBHSUN.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/countries.$code": { id: "routes/countries.$code", parentId: "root", path: "countries/:code", index: void 0, caseSensitive: void 0, module: "/build/routes/countries.$code-67EVHGUF.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, cssBundleHref: void 0, hmr: void 0, url: "/build/manifest-244379AD.js" };
+var assets_manifest_default = { version: "8ed4fa47", entry: { module: "/build/entry.client-QS5YN5QW.js", imports: ["/build/_shared/chunk-A3MQEAS6.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-NFZCBFRU.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-JNXJOG6M.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/countries.$code": { id: "routes/countries.$code", parentId: "root", path: "countries/:code", index: void 0, caseSensitive: void 0, module: "/build/routes/countries.$code-67EVHGUF.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, cssBundleHref: void 0, hmr: void 0, url: "/build/manifest-8ED4FA47.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var assetsBuildDirectory = "public/build", future = { unstable_cssModules: !1, unstable_cssSideEffectImports: !1, unstable_dev: !1, unstable_postcss: !1, unstable_tailwind: !0, unstable_vanillaExtract: !1, v2_errorBoundary: !0, v2_meta: !0, v2_normalizeFormMethod: !0, v2_routeConvention: !0 }, publicPath = "/build/", entry = { module: entry_server_exports }, routes = {
