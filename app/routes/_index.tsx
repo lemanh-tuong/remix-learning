@@ -27,8 +27,9 @@ export default function Index() {
         {countries.map(({ code, name }) => (
           <li key={code}>
             <Link to={`/countries/${code}`} prefetch="intent">
-              {name}
+              Link: {name}
             </Link>
+            <button onClick={() => window.open(`/countries/${code}`)}>Button open: {name}</button>
           </li>
         ))}
       </ul>

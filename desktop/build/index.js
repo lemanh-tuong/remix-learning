@@ -34,14 +34,18 @@ var entry_server_exports = {};
 __export(entry_server_exports, {
   default: () => handleRequest
 });
-var import_node = require("@remix-run/node"), import_react = require("@remix-run/react"), import_isbot = __toESM(require("isbot")), import_server = require("react-dom/server"), import_node_stream = require("stream"), import_jsx_runtime = require("react/jsx-runtime"), ABORT_DELAY = 5e3;
+var import_node = require("@remix-run/node"), import_react = require("@remix-run/react"), import_isbot = __toESM(require("isbot")), import_server = require("react-dom/server"), import_node_stream = require("stream"), import_jsx_dev_runtime = require("react/jsx-dev-runtime"), ABORT_DELAY = 5e3;
 function handleRequest(request, responseStatusCode, responseHeaders, remixContext) {
   return (0, import_isbot.default)(request.headers.get("user-agent")) ? handleBotRequest(request, responseStatusCode, responseHeaders, remixContext) : handleBrowserRequest(request, responseStatusCode, responseHeaders, remixContext);
 }
 function handleBotRequest(request, responseStatusCode, responseHeaders, remixContext) {
   return new Promise((resolve, reject) => {
     let { pipe, abort } = (0, import_server.renderToPipeableStream)(
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_react.RemixServer, { context: remixContext, url: request.url, abortDelay: ABORT_DELAY }),
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react.RemixServer, { context: remixContext, url: request.url, abortDelay: ABORT_DELAY }, void 0, !1, {
+        fileName: "app/entry.server.tsx",
+        lineNumber: 35,
+        columnNumber: 7
+      }, this),
       {
         onAllReady() {
           let body = new import_node_stream.PassThrough();
@@ -66,7 +70,11 @@ function handleBotRequest(request, responseStatusCode, responseHeaders, remixCon
 function handleBrowserRequest(request, responseStatusCode, responseHeaders, remixContext) {
   return new Promise((resolve, reject) => {
     let { pipe, abort } = (0, import_server.renderToPipeableStream)(
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_react.RemixServer, { context: remixContext, url: request.url, abortDelay: ABORT_DELAY }),
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(import_react.RemixServer, { context: remixContext, url: request.url, abortDelay: ABORT_DELAY }, void 0, !1, {
+        fileName: "app/entry.server.tsx",
+        lineNumber: 73,
+        columnNumber: 7
+      }, this),
       {
         onShellReady() {
           let body = new import_node_stream.PassThrough();
@@ -99,38 +107,90 @@ __export(root_exports, {
 var import_node2 = require("@remix-run/node"), import_react2 = require("@remix-run/react");
 
 // app/tailwind.css
-var tailwind_default = "/build/_assets/tailwind-QBQL6GI4.css";
+var tailwind_default = "/build/_assets/tailwind-POMMSKQG.css";
 
 // app/root.tsx
-var import_jsx_runtime2 = require("react/jsx-runtime"), links = () => [{ rel: "stylesheet", href: tailwind_default }], loader = async () => (0, import_node2.json)({
+var import_jsx_dev_runtime2 = require("react/jsx-dev-runtime"), links = () => [{ rel: "stylesheet", href: tailwind_default }], loader = async () => (0, import_node2.json)({
   ENV: {
     MAIN_SERVICE_BASE_URL: process.env.MAIN_SERVICE_BASE_URL
   }
 });
 function App() {
   let data = (0, import_react2.useLoaderData)();
-  return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("html", { lang: "en", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("head", { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("meta", { charSet: "utf-8" }),
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("meta", { name: "viewport", content: "width=device-width,initial-scale=1" }),
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_react2.Meta, {}),
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_react2.Links, {})
-    ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("body", { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime2.jsxDEV)("html", { lang: "en", children: [
+    /* @__PURE__ */ (0, import_jsx_dev_runtime2.jsxDEV)("head", { children: [
+      /* @__PURE__ */ (0, import_jsx_dev_runtime2.jsxDEV)("meta", { charSet: "utf-8" }, void 0, !1, {
+        fileName: "app/root.tsx",
+        lineNumber: 22,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ (0, import_jsx_dev_runtime2.jsxDEV)("meta", { name: "viewport", content: "width=device-width,initial-scale=1" }, void 0, !1, {
+        fileName: "app/root.tsx",
+        lineNumber: 23,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ (0, import_jsx_dev_runtime2.jsxDEV)(import_react2.Meta, {}, void 0, !1, {
+        fileName: "app/root.tsx",
+        lineNumber: 24,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ (0, import_jsx_dev_runtime2.jsxDEV)(import_react2.Links, {}, void 0, !1, {
+        fileName: "app/root.tsx",
+        lineNumber: 25,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, !0, {
+      fileName: "app/root.tsx",
+      lineNumber: 21,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ (0, import_jsx_dev_runtime2.jsxDEV)("body", { children: [
+      /* @__PURE__ */ (0, import_jsx_dev_runtime2.jsxDEV)(
         "script",
         {
           dangerouslySetInnerHTML: {
             __html: `window.ENV = ${JSON.stringify(data.ENV)}`
           }
-        }
+        },
+        void 0,
+        !1,
+        {
+          fileName: "app/root.tsx",
+          lineNumber: 28,
+          columnNumber: 9
+        },
+        this
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_react2.Outlet, {}),
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_react2.ScrollRestoration, {}),
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_react2.Scripts, {}),
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_react2.LiveReload, {})
-    ] })
-  ] });
+      /* @__PURE__ */ (0, import_jsx_dev_runtime2.jsxDEV)(import_react2.Outlet, {}, void 0, !1, {
+        fileName: "app/root.tsx",
+        lineNumber: 33,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ (0, import_jsx_dev_runtime2.jsxDEV)(import_react2.ScrollRestoration, {}, void 0, !1, {
+        fileName: "app/root.tsx",
+        lineNumber: 34,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ (0, import_jsx_dev_runtime2.jsxDEV)(import_react2.Scripts, {}, void 0, !1, {
+        fileName: "app/root.tsx",
+        lineNumber: 35,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ (0, import_jsx_dev_runtime2.jsxDEV)(import_react2.LiveReload, {}, void 0, !1, {
+        fileName: "app/root.tsx",
+        lineNumber: 36,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, !0, {
+      fileName: "app/root.tsx",
+      lineNumber: 27,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, !0, {
+    fileName: "app/root.tsx",
+    lineNumber: 20,
+    columnNumber: 5
+  }, this);
 }
 
 // app/routes/countries.$code.tsx
@@ -158,7 +218,7 @@ var import_graphql_request = require("graphql-request"), GetCountryByCode = impo
 var import_graphql_request2 = require("graphql-request"), client = new import_graphql_request2.GraphQLClient("http://countries.trevorblades.com");
 
 // app/routes/countries.$code.tsx
-var import_jsx_runtime3 = require("react/jsx-runtime"), loader2 = async ({ params }) => {
+var import_jsx_dev_runtime3 = require("react/jsx-dev-runtime"), loader2 = async ({ params }) => {
   let { code } = params;
   if (code) {
     let { country } = await client.request(GetCountryByCode, {
@@ -173,13 +233,37 @@ var import_jsx_runtime3 = require("react/jsx-runtime"), loader2 = async ({ param
 };
 function CountryPage() {
   let data = (0, import_react3.useLoaderData)();
-  return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(import_jsx_runtime3.Fragment, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("form", { method: "post", action: `/countries/${data == null ? void 0 : data.country.code}`, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("label", { children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("input", { name: "code", type: "text", placeholder: "Country code" }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("button", { type: "submit", children: "Go" })
-    ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("pre", { children: JSON.stringify(data == null ? void 0 : data.country, null, 2) })
-  ] });
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)(import_jsx_dev_runtime3.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("form", { method: "post", action: `/countries/${data == null ? void 0 : data.country.code}`, children: [
+      /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("label", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("input", { name: "code", type: "text", placeholder: "Country code" }, void 0, !1, {
+        fileName: "app/routes/countries.$code.tsx",
+        lineNumber: 36,
+        columnNumber: 11
+      }, this) }, void 0, !1, {
+        fileName: "app/routes/countries.$code.tsx",
+        lineNumber: 35,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("button", { type: "submit", children: "Go" }, void 0, !1, {
+        fileName: "app/routes/countries.$code.tsx",
+        lineNumber: 38,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, !0, {
+      fileName: "app/routes/countries.$code.tsx",
+      lineNumber: 34,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("pre", { children: JSON.stringify(data == null ? void 0 : data.country, null, 2) }, void 0, !1, {
+      fileName: "app/routes/countries.$code.tsx",
+      lineNumber: 40,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, !0, {
+    fileName: "app/routes/countries.$code.tsx",
+    lineNumber: 33,
+    columnNumber: 5
+  }, this);
 }
 
 // app/routes/_index.tsx
@@ -202,20 +286,53 @@ var import_graphql_request3 = require("graphql-request"), GetAllCountries = impo
 `;
 
 // app/routes/_index.tsx
-var import_jsx_runtime4 = require("react/jsx-runtime"), loader3 = async () => {
+var import_jsx_dev_runtime4 = require("react/jsx-dev-runtime"), loader3 = async () => {
   let { countries } = await client.request(GetAllCountries);
   return (0, import_node4.json)({ countries });
 }, meta = () => [{ title: "New Remix App" }];
 function Index() {
   let { countries } = (0, import_react4.useLoaderData)();
-  return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("h1", { children: "Remix + GraphQL!" }),
-    /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("ul", { children: countries.map(({ code, name }) => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_react4.Link, { to: `/countries/${code}`, prefetch: "intent", children: name }) }, code)) })
-  ] });
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("div", { children: [
+    /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("h1", { children: "Remix + GraphQL!" }, void 0, !1, {
+      fileName: "app/routes/_index.tsx",
+      lineNumber: 25,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("ul", { children: countries.map(({ code, name }) => /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("li", { children: [
+      /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(import_react4.Link, { to: `/countries/${code}`, prefetch: "intent", children: [
+        "Link: ",
+        name
+      ] }, void 0, !0, {
+        fileName: "app/routes/_index.tsx",
+        lineNumber: 29,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("button", { onClick: () => window.open(`/countries/${code}`), children: [
+        "Button open: ",
+        name
+      ] }, void 0, !0, {
+        fileName: "app/routes/_index.tsx",
+        lineNumber: 32,
+        columnNumber: 13
+      }, this)
+    ] }, code, !0, {
+      fileName: "app/routes/_index.tsx",
+      lineNumber: 28,
+      columnNumber: 11
+    }, this)) }, void 0, !1, {
+      fileName: "app/routes/_index.tsx",
+      lineNumber: 26,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, !0, {
+    fileName: "app/routes/_index.tsx",
+    lineNumber: 24,
+    columnNumber: 5
+  }, this);
 }
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { version: "9a0fc6bf", entry: { module: "/build/entry.client-PKFZYVPS.js", imports: ["/build/_shared/chunk-TVEVXULL.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-QP5RUARQ.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-S7OZQVKT.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/countries.$code": { id: "routes/countries.$code", parentId: "root", path: "countries/:code", index: void 0, caseSensitive: void 0, module: "/build/routes/countries.$code-PTPYP7CL.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, cssBundleHref: void 0, hmr: void 0, url: "/build/manifest-9A0FC6BF.js" };
+var assets_manifest_default = { version: "244379ad", entry: { module: "/build/entry.client-QS5YN5QW.js", imports: ["/build/_shared/chunk-A3MQEAS6.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-S67T3OB6.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-D5SBHSUN.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/countries.$code": { id: "routes/countries.$code", parentId: "root", path: "countries/:code", index: void 0, caseSensitive: void 0, module: "/build/routes/countries.$code-67EVHGUF.js", imports: void 0, hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, cssBundleHref: void 0, hmr: void 0, url: "/build/manifest-244379AD.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var assetsBuildDirectory = "public/build", future = { unstable_cssModules: !1, unstable_cssSideEffectImports: !1, unstable_dev: !1, unstable_postcss: !1, unstable_tailwind: !0, unstable_vanillaExtract: !1, v2_errorBoundary: !0, v2_meta: !0, v2_normalizeFormMethod: !0, v2_routeConvention: !0 }, publicPath = "/build/", entry = { module: entry_server_exports }, routes = {
@@ -253,3 +370,4 @@ var assetsBuildDirectory = "public/build", future = { unstable_cssModules: !1, u
   publicPath,
   routes
 });
+//# sourceMappingURL=index.js.map
