@@ -2,6 +2,34 @@
   "private": true,
   "sideEffects": false,
   "main": "desktop/main.js",
+  "build": {
+    "productName": "TuongRemixLearning",
+    "dmg": {
+      "contents": [
+        {
+          "x": 130,
+          "y": 220
+        },
+        {
+          "x": 410,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "msi"
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage"
+      ]
+    }
+  },
   "scripts": {
     "clean": "del-cli dist desktop/build public/build",
     "dev": "npm run clean && cross-env NODE_ENV=development npm-run-all --parallel --print-label --race dev:*",

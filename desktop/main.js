@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { app, BrowserWindow, dialog } = require('electron');
+const { app, BrowserWindow, dialog, ipcMain } = require('electron');
 const { initRemix } = require('remix-electron');
 const { join } = require('node:path');
 
@@ -8,7 +8,13 @@ let win;
 
 /** @param {string} url */
 async function createWindow(url) {
-  win = new BrowserWindow({ show: false });
+  win = new BrowserWindow({
+    webPreferences: {
+      nodeIntegration: true,
+      preload: join(__dirname, 'preload.js'),
+    },
+  });
+  ipcMain.handle('ping', () => 'pong');
   await win.loadURL(url);
   win.show();
 

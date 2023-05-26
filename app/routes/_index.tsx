@@ -22,8 +22,16 @@ export const loader = async () => {
 export default function Index() {
   const { quotes } = useLoaderData<typeof loader>();
 
+  const handlePing = async () => {
+    const response = await window.electronApis.ping();
+    console.log(response);
+  };
+
   return (
     <div>
+      <button className="bg-slate-700 px-4 py-2 text-white" onClick={handlePing}>
+        Ping
+      </button>
       <div className="grid grid-cols-1 lg:grid-flow-row lg:grid-cols-3">
         {quotes.map((q, i) => {
           const { quote, by } = q;

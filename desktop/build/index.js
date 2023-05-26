@@ -107,7 +107,7 @@ __export(root_exports, {
 var import_node2 = require("@remix-run/node"), import_react2 = require("@remix-run/react");
 
 // app/tailwind.css
-var tailwind_default = "/build/_assets/tailwind-DNIAR2T5.css";
+var tailwind_default = "/build/_assets/tailwind-RHXPIRJJ.css";
 
 // app/root.tsx
 var import_jsx_dev_runtime2 = require("react/jsx-dev-runtime"), links = () => [{ rel: "stylesheet", href: tailwind_default }], loader = async () => (0, import_node2.json)({
@@ -227,48 +227,58 @@ var import_jsx_dev_runtime3 = require("react/jsx-dev-runtime"), meta = () => [{ 
 };
 function Index() {
   let { quotes } = (0, import_react3.useLoaderData)();
-  return /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("div", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("div", { className: "grid grid-cols-1 lg:grid-flow-row lg:grid-cols-3", children: quotes.map((q, i) => {
-    let { quote, by } = q;
-    return /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("figure", { className: "m-4 px-4 py-10 shadow-md shadow-sky-100", children: [
-      /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("blockquote", { cite: "https://wisdomman.com", className: "py-3", children: /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("p", { className: "text-xl  text-gray-800", children: quote }, void 0, !1, {
-        fileName: "app/routes/_index.tsx",
-        lineNumber: 33,
-        columnNumber: 17
-      }, this) }, void 0, !1, {
-        fileName: "app/routes/_index.tsx",
-        lineNumber: 32,
-        columnNumber: 15
-      }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("figcaption", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("cite", { className: "mb-4 text-right text-sm text-gray-600", children: [
-        "- ",
-        by
-      ] }, void 0, !0, {
-        fileName: "app/routes/_index.tsx",
-        lineNumber: 36,
-        columnNumber: 17
-      }, this) }, void 0, !1, {
-        fileName: "app/routes/_index.tsx",
-        lineNumber: 35,
-        columnNumber: 15
-      }, this)
-    ] }, i, !0, {
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("div", { children: [
+    /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("button", { className: "bg-slate-700 px-4 py-2 text-white", onClick: async () => {
+      let response = await window.electronApis.ping();
+      console.log(response);
+    }, children: "Ping" }, void 0, !1, {
       fileName: "app/routes/_index.tsx",
-      lineNumber: 31,
-      columnNumber: 13
-    }, this);
-  }) }, void 0, !1, {
+      lineNumber: 32,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("div", { className: "grid grid-cols-1 lg:grid-flow-row lg:grid-cols-3", children: quotes.map((q, i) => {
+      let { quote, by } = q;
+      return /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("figure", { className: "m-4 px-4 py-10 shadow-md shadow-sky-100", children: [
+        /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("blockquote", { cite: "https://wisdomman.com", className: "py-3", children: /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("p", { className: "text-xl  text-gray-800", children: quote }, void 0, !1, {
+          fileName: "app/routes/_index.tsx",
+          lineNumber: 41,
+          columnNumber: 17
+        }, this) }, void 0, !1, {
+          fileName: "app/routes/_index.tsx",
+          lineNumber: 40,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("figcaption", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("cite", { className: "mb-4 text-right text-sm text-gray-600", children: [
+          "- ",
+          by
+        ] }, void 0, !0, {
+          fileName: "app/routes/_index.tsx",
+          lineNumber: 44,
+          columnNumber: 17
+        }, this) }, void 0, !1, {
+          fileName: "app/routes/_index.tsx",
+          lineNumber: 43,
+          columnNumber: 15
+        }, this)
+      ] }, i, !0, {
+        fileName: "app/routes/_index.tsx",
+        lineNumber: 39,
+        columnNumber: 13
+      }, this);
+    }) }, void 0, !1, {
+      fileName: "app/routes/_index.tsx",
+      lineNumber: 35,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, !0, {
     fileName: "app/routes/_index.tsx",
-    lineNumber: 27,
-    columnNumber: 7
-  }, this) }, void 0, !1, {
-    fileName: "app/routes/_index.tsx",
-    lineNumber: 26,
+    lineNumber: 31,
     columnNumber: 5
   }, this);
 }
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { version: "f7697b1b", entry: { module: "/build/entry.client-ADIIQCH4.js", imports: ["/build/_shared/chunk-ANWLSTK2.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-2YKYHUSG.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-O2LQRDID.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, cssBundleHref: void 0, hmr: void 0, url: "/build/manifest-F7697B1B.js" };
+var assets_manifest_default = { version: "fb0d1f3b", entry: { module: "/build/entry.client-ADIIQCH4.js", imports: ["/build/_shared/chunk-ANWLSTK2.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-CUUQQDZX.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-5YCGONNY.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, cssBundleHref: void 0, hmr: void 0, url: "/build/manifest-FB0D1F3B.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var assetsBuildDirectory = "public/build", future = { unstable_cssModules: !1, unstable_cssSideEffectImports: !1, unstable_dev: !1, unstable_postcss: !1, unstable_tailwind: !0, unstable_vanillaExtract: !1, v2_errorBoundary: !0, v2_meta: !0, v2_normalizeFormMethod: !0, v2_routeConvention: !0 }, publicPath = "/build/", entry = { module: entry_server_exports }, routes = {
