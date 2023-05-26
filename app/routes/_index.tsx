@@ -1,10 +1,11 @@
 import { json } from '@remix-run/node';
-import { Form, useLoaderData } from '@remix-run/react';
-import { Table, Input, Form as AntForm, Card, Divider, Button } from 'antd';
+import { Form, useActionData, useLoaderData } from '@remix-run/react';
+import { Button, Card, Divider, Form as AntForm, Input, Table } from 'antd';
+import { useEffect } from 'react';
 import { Select } from '~/components/Select';
 import { todoService } from '~/services/TodoService';
-import { formDataToObject } from '~/utils/formDataToObject';
-import type { V2_MetaFunction, ActionFunction } from '@remix-run/node';
+import type { ActionFunction, V2_MetaFunction } from '@remix-run/node';
+import type { ShouldRevalidateFunction } from '@remix-run/react';
 import type { Todo } from '~/models/Todo';
 
 export const meta: V2_MetaFunction = () => {
@@ -15,9 +16,7 @@ interface PageProps {
   todos: Todo[];
 }
 
-export const action: ActionFunction = async ({ request }) => {
-  const body = await request.formData();
-  console.log(111, formDataToObject(body));
+export const action: ActionFunction = async () => {
   return json({ message: 'Created' });
 };
 
@@ -28,13 +27,29 @@ export const loader = async () => {
   });
 };
 
+export const shouldRevalidate: ShouldRevalidateFunction = ({ formMethod, defaultShouldRevalidate }) => {
+  if (formMethod === 'POST' || formMethod === 'PUT' || formMethod === 'DELETE') {
+    return false;
+  }
+  return defaultShouldRevalidate;
+};
+
 export default function Index() {
-  const { todos } = useLoaderData<typeof loader>();
+  const loaderData = useLoaderData<typeof loader>();
+  const actionData = useActionData<typeof action>();
+
+  useEffect(() => {
+    console.log('Loader data', loaderData);
+  }, [loaderData]);
+
+  useEffect(() => {
+    console.log('Action data', actionData);
+  }, [actionData]);
 
   return (
     <div style={{ padding: 24 }}>
       <Card title="New todo">
-        <Form method="POST">
+        <Form method="post">
           <AntForm.Item label="Title">
             <Input name="title" />
           </AntForm.Item>
@@ -106,7 +121,7 @@ export default function Index() {
             },
           },
         ]}
-        dataSource={todos}
+        dataSource={loaderData.todos}
         rowKey={record => record.id}
       />
     </div>
