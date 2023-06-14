@@ -1,5 +1,6 @@
 import { json } from '@remix-run/node';
 import { useLoaderData } from '@remix-run/react';
+import { useTranslation } from 'react-i18next';
 import { getQuotes } from '~/services/getQuotes';
 import type { V2_MetaFunction } from '@remix-run/node';
 import type { Quote } from '~/models/Quote';
@@ -22,8 +23,11 @@ export const loader = async () => {
 export default function Index() {
   const { quotes } = useLoaderData<typeof loader>();
 
+  const { t } = useTranslation(['ns1']);
+
   return (
     <div>
+      <h1>{t('ns1:greeting', { name: 'Tuong' })}</h1>
       <div className="grid grid-cols-1 lg:grid-flow-row lg:grid-cols-3">
         {quotes.map((q, i) => {
           const { quote, by } = q;
