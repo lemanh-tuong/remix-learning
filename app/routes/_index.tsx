@@ -1,16 +1,16 @@
 import { json } from '@remix-run/node';
 import { Link, useLoaderData } from '@remix-run/react';
-import { GetAllCountries } from '~/graphql/getCountries';
-import { client } from '~/lib/graphql-client';
+import { client } from '~/graphql/graphql-client';
+import { getSdk } from '~/graphql/sdk';
 import type { V2_MetaFunction, LoaderFunction } from '@remix-run/node';
-import type { GetAllCountriesResponse } from '~/graphql/getCountries';
+import type { GetCountriesQuery } from '~/graphql/sdk';
 
-type PageProps = GetAllCountriesResponse;
-
+type PageProps = GetCountriesQuery;
 export const loader: LoaderFunction = async () => {
-  const { countries } = await client.request<PageProps>(GetAllCountries);
+  const sdk = getSdk(client);
+  const { countries } = await sdk.getCountries();
 
-  return json<PageProps>({ countries });
+  return json({ countries });
 };
 
 export const meta: V2_MetaFunction = () => {
@@ -19,13 +19,10 @@ export const meta: V2_MetaFunction = () => {
 
 export default function Index() {
   const { countries } = useLoaderData<PageProps>();
-  const func = async () => {
-    const response = await window.versions.ping();
-    console.log(response); // prints out 'pong'
-  };
+
   return (
     <div>
-      <h1 onClick={func}>Remix + GraphQL!</h1>
+      <h1>Remix + GraphQL!</h1>
       <button className="bg-slate-300 px-4 py-2">Load</button>
       <ul>
         {countries.map(({ code, name }) => (

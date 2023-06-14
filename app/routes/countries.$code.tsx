@@ -1,22 +1,21 @@
 import { json, redirect } from '@remix-run/node';
 import { useLoaderData } from '@remix-run/react';
-import { GetCountryByCode } from '~/graphql/getCountryByCode';
-import { client } from '~/lib/graphql-client';
-import type { ActionFunction, LoaderFunction } from '@remix-run/node';
-import type { GetCountryByCodeResponse, GetCountryByCodeVariables } from '~/graphql/getCountryByCode';
+import { client } from '~/graphql/graphql-client';
+import { getSdk } from '~/graphql/sdk';
+import type { LoaderFunction, ActionFunction } from '@remix-run/node';
+import type { GetCountryByCodeQuery } from '~/graphql/sdk';
 
-type PageProps = GetCountryByCodeResponse | null;
+type PageProps = GetCountryByCodeQuery;
 
 export const loader: LoaderFunction = async ({ params }) => {
   const { code } = params;
 
   if (code) {
-    const { country } = await client.request<GetCountryByCodeResponse, GetCountryByCodeVariables>(GetCountryByCode, {
-      code,
-    });
+    const sdk = getSdk(client);
+    const { country } = await sdk.getCountryByCode({ code });
     return json<PageProps>({ country });
   } else {
-    return json<PageProps>(null);
+    return json<PageProps>({ country: null });
   }
 };
 
@@ -31,7 +30,7 @@ export default function CountryPage() {
 
   return (
     <>
-      <form method="post" action={`/countries/${data?.country.code}`}>
+      <form method="post" action={`/countries/${data?.country?.code}`}>
         <label>
           <input name="code" type="text" placeholder="Country code" />
         </label>

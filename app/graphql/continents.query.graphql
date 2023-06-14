@@ -1,0 +1,11 @@
+# import * from 'sdk.ts'
+
+query getContinents {
+  continents {
+    code
+    name
+    countries {
+      ...CountryFields
+    }
+  }
+}
